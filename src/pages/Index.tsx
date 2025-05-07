@@ -10,29 +10,47 @@ import ProjectsSection from "@/components/ProjectsSection";
 import EducationSection from "@/components/EducationSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import { 
+  Code2, Server, Database, FileCode, Palette, CodeSquare, 
+  Layers, Leaf, Layout, Network, Boxes, GitBranch, 
+  Send, Package, Github, Clock, PuzzlePiece, Lightbulb, 
+  Users, RefreshCw
+} from "lucide-react";
 
-// This function creates the icons for our skills section
+// This creates the Lucide React components for the skills section
 const createLucideIcons = () => {
-  // This is a workaround to dynamically create the Lucide icons that we reference in the SkillsSection
-  const iconNames = [
-    "code", "server", "database", "file-code", "palette", "code-square", 
-    "layers", "leaf", "layout", "boot", "network", "boxes", "git-branch", 
-    "send", "package", "github", "clock", "puzzle", "lightbulb", "users", 
-    "refresh-cw"
+  const icons = [
+    <Code2 size={24} key="code" className="hidden" />,
+    <Server size={24} key="server" className="hidden" />,
+    <Database size={24} key="database" className="hidden" />,
+    <FileCode size={24} key="file-code" className="hidden" />,
+    <Palette size={24} key="palette" className="hidden" />,
+    <CodeSquare size={24} key="code-square" className="hidden" />,
+    <Layers size={24} key="layers" className="hidden" />,
+    <Leaf size={24} key="leaf" className="hidden" />,
+    <Layout size={24} key="layout" className="hidden" />,
+    <Network size={24} key="network" className="hidden" />,
+    <Boxes size={24} key="boxes" className="hidden" />,
+    <GitBranch size={24} key="git-branch" className="hidden" />,
+    <Send size={24} key="send" className="hidden" />,
+    <Package size={24} key="package" className="hidden" />,
+    <Github size={24} key="github" className="hidden" />,
+    <Clock size={24} key="clock" className="hidden" />,
+    <PuzzlePiece size={24} key="puzzle-piece" className="hidden" />,
+    <Lightbulb size={24} key="lightbulb" className="hidden" />,
+    <Users size={24} key="users" className="hidden" />,
+    <RefreshCw size={24} key="refresh-cw" className="hidden" />,
   ];
   
-  iconNames.forEach(name => {
-    const icon = document.createElement("i");
-    icon.className = `lucide-${name}`;
-    icon.style.display = "none";
-    document.body.appendChild(icon);
-  });
+  return (
+    <div style={{ display: 'none' }}>
+      {icons}
+    </div>
+  );
 };
 
 const Index: React.FC = () => {
   useEffect(() => {
-    createLucideIcons();
-    
     // Initialize scroll animation observer
     const observerOptions = {
       root: null,
@@ -67,6 +85,7 @@ const Index: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-hidden relative">
+      {createLucideIcons()}
       <ThreeBackground />
       <Header />
       <main>

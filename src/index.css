@@ -80,6 +80,15 @@
   transform: translateY(-5px);
 }
 
+.skill-card svg {
+  @apply text-portfolio-primary transition-transform duration-300;
+}
+
+.skill-card:hover svg {
+  transform: translateY(-5px) scale(1.1);
+  @apply text-portfolio-accent;
+}
+
 /* Canvas container */
 #canvas-container {
   position: fixed;

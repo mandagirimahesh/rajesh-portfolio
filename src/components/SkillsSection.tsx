@@ -1,56 +1,112 @@
 
 import React from "react";
 import AnimatedSection from "./AnimatedSection";
+import { 
+  Code2Icon, ServerIcon, DatabaseIcon, FileCodeIcon, PaletteIcon, 
+  CodeSquareIcon, LayersIcon, LeafIcon, LayoutIcon, PackageIcon,
+  NetworkIcon, BoxesIcon, GitBranchIcon, SendIcon, GithubIcon,
+  ClockIcon, PuzzlePieceIcon, LightbulbIcon, UsersIcon, 
+  RefreshCwIcon
+} from "lucide-react";
 
 interface SkillProps {
   name: string;
-  icon: string;
+  icon: React.ReactNode;
   category: string;
 }
 
-const skillsList: SkillProps[] = [
+const getIconComponent = (iconName: string) => {
+  switch (iconName) {
+    case "code":
+      return <Code2Icon className="w-6 h-6" />;
+    case "server":
+      return <ServerIcon className="w-6 h-6" />;
+    case "database":
+      return <DatabaseIcon className="w-6 h-6" />;
+    case "file-code":
+      return <FileCodeIcon className="w-6 h-6" />;
+    case "palette":
+      return <PaletteIcon className="w-6 h-6" />;
+    case "code-square":
+      return <CodeSquareIcon className="w-6 h-6" />;
+    case "layers":
+      return <LayersIcon className="w-6 h-6" />;
+    case "leaf":
+      return <LeafIcon className="w-6 h-6" />;
+    case "layout":
+      return <LayoutIcon className="w-6 h-6" />;
+    case "boot":
+      return <PackageIcon className="w-6 h-6" />;
+    case "network":
+      return <NetworkIcon className="w-6 h-6" />;
+    case "boxes":
+      return <BoxesIcon className="w-6 h-6" />;
+    case "git-branch":
+      return <GitBranchIcon className="w-6 h-6" />;
+    case "send":
+      return <SendIcon className="w-6 h-6" />;
+    case "package":
+      return <PackageIcon className="w-6 h-6" />;
+    case "github":
+      return <GithubIcon className="w-6 h-6" />;
+    case "clock":
+      return <ClockIcon className="w-6 h-6" />;
+    case "puzzle":
+      return <PuzzlePieceIcon className="w-6 h-6" />;
+    case "lightbulb":
+      return <LightbulbIcon className="w-6 h-6" />;
+    case "users":
+      return <UsersIcon className="w-6 h-6" />;
+    case "refresh-cw":
+      return <RefreshCwIcon className="w-6 h-6" />;
+    default:
+      return <Code2Icon className="w-6 h-6" />;
+  }
+};
+
+const skillsList: Array<Omit<SkillProps, "icon"> & { iconName: string }> = [
   // Programming Languages
-  { name: "Java 8", icon: "code", category: "Programming" },
-  { name: "J2EE", icon: "server", category: "Programming" },
+  { name: "Java 8", iconName: "code", category: "Programming" },
+  { name: "J2EE", iconName: "server", category: "Programming" },
   // Databases
-  { name: "MySQL", icon: "database", category: "Database" },
-  { name: "Oracle SQL", icon: "database", category: "Database" },
+  { name: "MySQL", iconName: "database", category: "Database" },
+  { name: "Oracle SQL", iconName: "database", category: "Database" },
   // Web Technologies
-  { name: "HTML", icon: "file-code", category: "Web" },
-  { name: "CSS", icon: "palette", category: "Web" },
-  { name: "JavaScript", icon: "code-square", category: "Web" },
+  { name: "HTML", iconName: "file-code", category: "Web" },
+  { name: "CSS", iconName: "palette", category: "Web" },
+  { name: "JavaScript", iconName: "code-square", category: "Web" },
   // Frameworks
-  { name: "Hibernate", icon: "layers", category: "Frameworks" },
-  { name: "Spring Framework", icon: "leaf", category: "Frameworks" },
-  { name: "Spring MVC", icon: "layout", category: "Frameworks" },
-  { name: "Spring Boot", icon: "boot", category: "Frameworks" },
+  { name: "Hibernate", iconName: "layers", category: "Frameworks" },
+  { name: "Spring Framework", iconName: "leaf", category: "Frameworks" },
+  { name: "Spring MVC", iconName: "layout", category: "Frameworks" },
+  { name: "Spring Boot", iconName: "boot", category: "Frameworks" },
   // APIs
-  { name: "JDBC", icon: "database", category: "API" },
-  { name: "Servlets", icon: "server", category: "API" },
-  { name: "JSP", icon: "file-code", category: "API" },
-  { name: "RESTful APIs", icon: "network", category: "API" },
-  { name: "Microservices", icon: "boxes", category: "API" },
+  { name: "JDBC", iconName: "database", category: "API" },
+  { name: "Servlets", iconName: "server", category: "API" },
+  { name: "JSP", iconName: "file-code", category: "API" },
+  { name: "RESTful APIs", iconName: "network", category: "API" },
+  { name: "Microservices", iconName: "boxes", category: "API" },
   // Tools
-  { name: "Eclipse IDE", icon: "code", category: "Tools" },
-  { name: "Git", icon: "git-branch", category: "Tools" },
-  { name: "VS Code", icon: "code", category: "Tools" },
-  { name: "Postman", icon: "send", category: "Tools" },
-  { name: "Maven", icon: "package", category: "Tools" },
-  { name: "GitHub", icon: "github", category: "Tools" },
+  { name: "Eclipse IDE", iconName: "code", category: "Tools" },
+  { name: "Git", iconName: "git-branch", category: "Tools" },
+  { name: "VS Code", iconName: "code", category: "Tools" },
+  { name: "Postman", iconName: "send", category: "Tools" },
+  { name: "Maven", iconName: "package", category: "Tools" },
+  { name: "GitHub", iconName: "github", category: "Tools" },
   // Soft Skills
-  { name: "Time Management", icon: "clock", category: "Soft Skills" },
-  { name: "Problem Solving", icon: "puzzle", category: "Soft Skills" },
-  { name: "Creativity", icon: "lightbulb", category: "Soft Skills" },
-  { name: "Teamwork", icon: "users", category: "Soft Skills" },
-  { name: "Adaptability", icon: "refresh-cw", category: "Soft Skills" },
-  { name: "Collaboration", icon: "users", category: "Soft Skills" },
+  { name: "Time Management", iconName: "clock", category: "Soft Skills" },
+  { name: "Problem Solving", iconName: "puzzle", category: "Soft Skills" },
+  { name: "Creativity", iconName: "lightbulb", category: "Soft Skills" },
+  { name: "Teamwork", iconName: "users", category: "Soft Skills" },
+  { name: "Adaptability", iconName: "refresh-cw", category: "Soft Skills" },
+  { name: "Collaboration", iconName: "users", category: "Soft Skills" },
 ];
 
 const SkillCard: React.FC<SkillProps> = ({ name, icon, category }) => (
   <AnimatedSection className="skill-card bg-accent/30 rounded-lg p-5 transition-all duration-300 hover:bg-accent/50 hover:-translate-y-1">
     <div className="flex flex-col items-center text-center">
       <div className="w-12 h-12 flex items-center justify-center mb-3 bg-portfolio-primary/20 rounded-full">
-        <i className={`lucide-${icon} skill-icon text-portfolio-primary transition-transform duration-300`} />
+        {icon}
       </div>
       <h3 className="font-medium mb-1">{name}</h3>
       <p className="text-sm text-foreground/70">{category}</p>
@@ -86,7 +142,9 @@ const SkillsSection: React.FC = () => {
                 .map((skill, i) => (
                   <SkillCard 
                     key={skill.name} 
-                    {...skill} 
+                    name={skill.name} 
+                    icon={getIconComponent(skill.iconName)}
+                    category={skill.category} 
                   />
                 ))
               }
