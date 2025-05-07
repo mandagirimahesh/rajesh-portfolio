@@ -1,11 +1,10 @@
-
 import React from "react";
 import AnimatedSection from "./AnimatedSection";
 import { 
   Code2Icon, ServerIcon, DatabaseIcon, FileCodeIcon, PaletteIcon, 
   CodeSquareIcon, LayersIcon, LeafIcon, LayoutIcon, PackageIcon,
   NetworkIcon, BoxesIcon, GitBranchIcon, SendIcon, GithubIcon,
-  ClockIcon, PuzzlePieceIcon, LightbulbIcon, UsersIcon, 
+  ClockIcon, PuzzleIcon, LightbulbIcon, UsersIcon, 
   RefreshCwIcon
 } from "lucide-react";
 
@@ -52,7 +51,7 @@ const getIconComponent = (iconName: string) => {
     case "clock":
       return <ClockIcon className="w-6 h-6" />;
     case "puzzle":
-      return <PuzzlePieceIcon className="w-6 h-6" />;
+      return <PuzzleIcon className="w-6 h-6" />;
     case "lightbulb":
       return <LightbulbIcon className="w-6 h-6" />;
     case "users":

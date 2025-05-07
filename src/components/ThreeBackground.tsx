@@ -53,7 +53,11 @@ const ParticleField = ({ count = 3000, color = '#9b87f5' }) => {
       
       // Gentle pulse effect
       const scale = Math.sin(time * 0.5 + i * 0.1) * 0.2 + 0.8;
-      mesh.current.geometry.attributes.size?.array[i] = scale;
+      
+      // Fix: Check if size exists before accessing array property
+      if (mesh.current.geometry.attributes.size) {
+        mesh.current.geometry.attributes.size.array[i] = scale;
+      }
       
       // Slow spiral rotation
       const x = positionArray[i3];

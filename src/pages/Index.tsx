@@ -1,4 +1,3 @@
-
 import React, { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import ThreeBackground from "@/components/ThreeBackground";
@@ -13,7 +12,7 @@ import Footer from "@/components/Footer";
 import { 
   Code2, Server, Database, FileCode, Palette, CodeSquare, 
   Layers, Leaf, Layout, Network, Boxes, GitBranch, 
-  Send, Package, Github, Clock, PuzzlePiece, Lightbulb, 
+  Send, Package, Github, Clock, Puzzle, Lightbulb, 
   Users, RefreshCw
 } from "lucide-react";
 
@@ -36,7 +35,7 @@ const createLucideIcons = () => {
     <Package size={24} key="package" className="hidden" />,
     <Github size={24} key="github" className="hidden" />,
     <Clock size={24} key="clock" className="hidden" />,
-    <PuzzlePiece size={24} key="puzzle-piece" className="hidden" />,
+    <Puzzle size={24} key="puzzle" className="hidden" />,
     <Lightbulb size={24} key="lightbulb" className="hidden" />,
     <Users size={24} key="users" className="hidden" />,
     <RefreshCw size={24} key="refresh-cw" className="hidden" />,
