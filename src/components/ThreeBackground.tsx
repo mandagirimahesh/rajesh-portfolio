@@ -57,16 +57,16 @@ const ParticleField = ({ count = 2000, color = '#9b87f5' }) => {
       <bufferGeometry>
         <bufferAttribute
           attach="attributes-position"
-          count={count}
           array={positions.current || new Float32Array(count * 3)}
           itemSize={3}
+          count={count}
         />
       </bufferGeometry>
       <pointsMaterial
         size={0.1}
         color={color}
-        sizeAttenuation={true}
-        transparent={true}
+        sizeAttenuation
+        transparent
         opacity={0.8}
       />
     </points>
